@@ -14,6 +14,13 @@ public class ParaulesIguals {
             System.out.println("The words are not the same");
     }
 
+    /**
+     * Checks if two words are the same
+     * Case matters
+     * @param paraula1 first word
+     * @param paraula2 second word
+     * @return words same or not
+     */
     static boolean paraulesIguals(String paraula1, String paraula2) {
         return paraula2.equals(paraula1);
     }
