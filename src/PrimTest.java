@@ -6,11 +6,11 @@ class PrimTest {
 
     @Test
     void esPrim() {
-        assertEquals(true, Prim.esPrim(7));
+        assertTrue(Prim.esPrim(7));
     }
 
     @Test
     void esPrim1() {
-        assertEquals(false, Prim.esPrim(10));
+        assertFalse(Prim.esPrim(10));
     }
 }
