@@ -49,12 +49,20 @@ public class Conjunts {
      * @return Sets equal or not
      */
     static boolean conjuntsIguals(int[] a, int[] b, int n) {
-        boolean notSame = true;
+        boolean same = true;
         int counter = 0;
-        while (notSame && counter < n) {
-
+        /*
+          Checks arrays are same
+          First(): First element of sets
+          Next(): Next element of sets
+          Last(): Last element or elements different
+          Cerca: Elements not the same
+         */
+        while (same && counter < n) {
+            if(a[counter] != b[counter])
+                same = false;
+            counter++;
         }
-
-        return notSame;
+        return same;
     }
 }
