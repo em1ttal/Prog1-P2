@@ -22,12 +22,12 @@ public class Prim {
     static boolean esPrim(int n) {
         boolean temp_prim = true;
         int counter = 2;
-        /**
-         * While counter isn't bigger than number and still prime
-         * First(): 2
-         * Next(): Prime, counter++
-         * Last(): Not prime or counter = n
-         * Cerca: Number not prime,
+        /*
+          While counter isn't bigger than number and still prime
+          First(): 2
+          Next(): Prime, counter++
+          Last(): Not prime or counter = n
+          Cerca: Number not prime,
          */
         while (temp_prim && counter < n) {
             if (n % counter == 0)
