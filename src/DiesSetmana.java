@@ -6,14 +6,11 @@ public class DiesSetmana {
         int user_choice;
         System.out.print("Enter a number from 1 - 7: ");
         user_choice = sc.nextInt(); sc.nextLine();
-        if(user_choice < 1 || user_choice > 7)
-            System.out.println("Error");
-        else
-            System.out.println("Day of week corresponding to " + user_choice + " is: " + nomDiesSetmana(user_choice));
+        System.out.println("Day of week corresponding to " + user_choice + " is: " + nomDiesSetmana(user_choice));
     }
 
     static String nomDiesSetmana(int n) {
-        String day_of_week = "";
+        String day_of_week;
         switch (n) {
             case 1:
                 day_of_week = "Monday";
@@ -35,6 +32,9 @@ public class DiesSetmana {
                 break;
             case 7:
                 day_of_week = "Sunday";
+                break;
+            default:
+                day_of_week = "Error";
                 break;
         }
         return day_of_week;
