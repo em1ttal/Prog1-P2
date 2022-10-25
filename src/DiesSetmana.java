@@ -9,6 +9,12 @@ public class DiesSetmana {
         System.out.println("Day of week corresponding to " + user_choice + " is: " + nomDiesSetmana(user_choice));
     }
 
+    /**
+     * Takes number and matches it with day of the week
+     * If number not in the week error
+     * @param n Day of week number
+     * @return Day of week in words
+     */
     static String nomDiesSetmana(int n) {
         String day_of_week;
         switch (n) {
