@@ -1,32 +1,31 @@
 import java.util.Arrays;
 
-public class Yahtzee {
+/**
+ * Not to turn in
+ */
+public class YahtzeeImproved {
     public static void main(String[] args) {
         int dice_throws = 5;
+        int tries = 1;
         int[] all_throws = new int[dice_throws];
         boolean repeat = true;
-        tiraDados(all_throws);
-        System.out.println(Arrays.toString(all_throws));
-        if(esYahtzee(all_throws))
-            System.out.println("Yahtzee!");
-        else
-            System.out.println("Unlucky, try again");
+        while (repeat) {
+            tiraDados(all_throws);
+            System.out.println("Try " + tries++ + ": "  + Arrays.toString(all_throws));
+            if(esYahtzee(all_throws)) {
+                System.out.println("Yahtzee!");
+                repeat = false;
+            } else {
+                System.out.println("Unlucky, try again");
+            }
+        }
     }
 
-    /**
-     * Throws dice and saves numbers in array
-     * @param daus Array of throws
-     */
     static void tiraDados(int[] daus) {
         for (int i = 0; i < daus.length; i++)
             daus[i] = (int) (Math.random() * 6) + 1;
     }
 
-    /**
-     * Checks whether conditions for yahtzee are met
-     * @param daus Array of throws
-     * @return Yahtzee?
-     */
     static boolean esYahtzee(int[] daus) {
         boolean yahtzee = true;
         for (int i = 0; (i < daus.length - 1) && yahtzee; i++) {
