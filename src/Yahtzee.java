@@ -4,7 +4,6 @@ public class Yahtzee {
     public static void main(String[] args) {
         int dice_throws = 5;
         int[] all_throws = new int[dice_throws];
-        boolean repeat = true;
         tiraDados(all_throws);
         System.out.println(Arrays.toString(all_throws));
         if(esYahtzee(all_throws))
