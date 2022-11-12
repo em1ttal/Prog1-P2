@@ -17,6 +17,13 @@ public class Yahtzee {
      * @param daus Array of throws
      */
     static void tiraDados(int[] daus) {
+        /*
+          Generates each dice throw
+          First(): Dice number 1
+          Next(): Dice number++
+          Last(): Last die
+          Recorregut
+         */
         for (int i = 0; i < daus.length; i++)
             daus[i] = (int) (Math.random() * 6) + 1;
     }
@@ -28,6 +35,13 @@ public class Yahtzee {
      */
     static boolean esYahtzee(int[] daus) {
         boolean yahtzee = true;
+        /*
+          Checks whether all dice are the same
+          First(): Dice number 1
+          Next(): Dice number++
+          Last(): Last die or first with different number
+          Cerca: Throw of different number
+         */
         for (int i = 0; (i < daus.length - 1) && yahtzee; i++) {
             if (daus[i] != daus[i + 1])
                 yahtzee = false;
