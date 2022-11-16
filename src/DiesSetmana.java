@@ -16,33 +16,15 @@ public class DiesSetmana {
      * @return Day of week in words
      */
     static String nomDiesSetmana(int n) {
-        String day_of_week;
-        switch (n) {
-            case 1:
-                day_of_week = "Monday";
-                break;
-            case 2:
-                day_of_week = "Tuesday";
-                break;
-            case 3:
-                day_of_week = "Wednesday";
-                break;
-            case 4:
-                day_of_week = "Thursday";
-                break;
-            case 5:
-                day_of_week = "Friday";
-                break;
-            case 6:
-                day_of_week = "Saturday";
-                break;
-            case 7:
-                day_of_week = "Sunday";
-                break;
-            default:
-                day_of_week = "Error";
-                break;
-        }
-        return day_of_week;
+        return switch (n) {
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            case 4 -> "Thursday";
+            case 5 -> "Friday";
+            case 6 -> "Saturday";
+            case 7 -> "Sunday";
+            default -> "Error";
+        };
     }
 }
