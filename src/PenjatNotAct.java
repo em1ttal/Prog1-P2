@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Penjat2 {
+public class PenjatNotAct {
     static final int TOTAL_WORDS = 10;
     static final int PENJAT = 6;
     public static void main(String[] args) {
@@ -15,6 +15,7 @@ public class Penjat2 {
         initLletrasEncertades(lletresEncertades, paraulaEndevinar);
 
         int tries = 0;
+        int position = 0;
         Scanner sc = new Scanner(System.in);
 
         /*
@@ -26,32 +27,17 @@ public class Penjat2 {
          */
         while (!jocAcabat(lletresEncertades) && tries < PENJAT) {
             System.out.println("Word to guess: " + mostraParaula(paraulaEndevinar, lletresEncertades));
-            System.out.println("Tries left: " + (PENJAT - tries) + "\n");
-            System.out.print("Guess a letter: ");
+            System.out.print("Guess letter at position " + position + ": ");
             char guess = sc.next().charAt(0);
-            //Aux variable for checking letters in word that are not the letter that is guessed
-            int aux_letters = 0;
-            /*
-              Checks whether guess is in word
-              First(): First letter
-              Next(): Letter number++
-              Last(): Last letter
-              Recorregut
-             */
-            for (int i = 0; i < paraulaEndevinar.length(); i++) {
-                if (lletraEncertada(paraulaEndevinar, i, guess, lletresEncertades))
-                    aux_letters = 0; //If letter is guessed, reset to 0 incase next letters are not the same
-                else
-                    aux_letters++;   //Or else +1
-            }
-            //If none of the letters are the guess, then one attempt less
-            if (aux_letters == paraulaEndevinar.length())
+            if (lletraEncertada(paraulaEndevinar, position, Character.toUpperCase(guess), lletresEncertades))
+                position++;
+            else
                 tries++;
         }
         if (jocAcabat(lletresEncertades))
             System.out.println("Well done!");
         else
-            System.out.println("The word was: " + paraulaEndevinar + "\nBetter luck next time");
+            System.out.println("Better luck next time");
     }
 
     /**
@@ -109,7 +95,6 @@ public class Penjat2 {
      * @return Letter guessed?
      */
     static boolean lletraEncertada (String paraulaEsbrinar, int pos, char c, boolean [] lletresEncertades) {
-        c = Character.toUpperCase(c);
         if (c == paraulaEsbrinar.charAt(pos)) {
             lletresEncertades[pos] = true;
             return true;

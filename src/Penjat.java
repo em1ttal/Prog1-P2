@@ -15,7 +15,6 @@ public class Penjat {
         initLletrasEncertades(lletresEncertades, paraulaEndevinar);
 
         int tries = 0;
-        int position = 0;
         Scanner sc = new Scanner(System.in);
 
         /*
@@ -27,17 +26,32 @@ public class Penjat {
          */
         while (!jocAcabat(lletresEncertades) && tries < PENJAT) {
             System.out.println("Word to guess: " + mostraParaula(paraulaEndevinar, lletresEncertades));
-            System.out.print("Guess letter at position " + position + ": ");
+            System.out.println("Tries left: " + (PENJAT - tries) + "\n");
+            System.out.print("Guess a letter: ");
             char guess = sc.next().charAt(0);
-            if (lletraEncertada(paraulaEndevinar, position, Character.toUpperCase(guess), lletresEncertades))
-                position++;
-            else
+            //Aux variable for checking letters in word that are not the letter that is guessed
+            int aux_letters = 0;
+            /*
+              Checks whether guess is in word
+              First(): First letter
+              Next(): Letter number++
+              Last(): Last letter
+              Recorregut
+             */
+            for (int i = 0; i < paraulaEndevinar.length(); i++) {
+                if (lletraEncertada(paraulaEndevinar, i, guess, lletresEncertades))
+                    aux_letters = 0; //If letter is guessed, reset to 0 incase next letters are not the same
+                else
+                    aux_letters++;   //Or else +1
+            }
+            //If none of the letters are the guess, then one attempt less
+            if (aux_letters == paraulaEndevinar.length())
                 tries++;
         }
         if (jocAcabat(lletresEncertades))
             System.out.println("Well done!");
         else
-            System.out.println("Better luck next time");
+            System.out.println("The word was: " + paraulaEndevinar + "\nBetter luck next time");
     }
 
     /**
@@ -95,6 +109,7 @@ public class Penjat {
      * @return Letter guessed?
      */
     static boolean lletraEncertada (String paraulaEsbrinar, int pos, char c, boolean [] lletresEncertades) {
+        c = Character.toUpperCase(c);
         if (c == paraulaEsbrinar.charAt(pos)) {
             lletresEncertades[pos] = true;
             return true;
