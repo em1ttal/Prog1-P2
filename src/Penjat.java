@@ -67,7 +67,7 @@ public class Penjat {
           Last(): Last word
           Recorregut
          */
-        for (int i = 1; i <= llistaParaules.length; i++) {
+        for (int i = 1; i <= TOTAL_WORDS; i++) {
             System.out.print("Word " + i + ": ");
             llistaParaules[i-1] = sc.nextLine();
         }

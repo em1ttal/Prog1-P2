@@ -15,19 +15,20 @@ public class MatriuIdentitat {
             System.out.print("Size of matrix: ");
             dim = sc.nextInt();
             int[][] matrix = new int[dim][dim];
-            System.out.println("Enter matrix:");
-            /*
-              Asks for matrix values
-              First(): element [0][0]
-              Next(): next element
-              Last(): element[dim][dim]
-              Recorregut
-             */
-            for (int i = 0; i < dim; i++) {
-                for (int j = 0; j < dim; j++)
-                    matrix[i][j] = sc.nextInt();
-            }
+
             if(dim != 0) {
+                System.out.println("Enter matrix:");
+                /*
+                  Asks for matrix values
+                  First(): element [0][0]
+                  Next(): next element
+                  Last(): element[dim][dim]
+                  Recorregut
+                 */
+                for (int i = 0; i < dim; i++) {
+                    for (int j = 0; j < dim; j++)
+                        matrix[i][j] = sc.nextInt();
+                }
                 if (checkIdentitat(matrix))
                     System.out.println("YES");
                 else
